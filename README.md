@@ -36,7 +36,8 @@ https://user-images.githubusercontent.com/2712505/174267754-619d4f81-dd04-4c50-b
 git clone git@github.com:sunset1995/DirectVoxGO.git
 cd DirectVoxGO
 
-Install pytorch scatter first... it will install the dependent version of pytorch.
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
+conda install pytorch-scatter -c pyg
 
 pip install -r requirements.txt
 ```
