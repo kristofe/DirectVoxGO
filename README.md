@@ -35,6 +35,9 @@ https://user-images.githubusercontent.com/2712505/174267754-619d4f81-dd04-4c50-b
 ```
 git clone git@github.com:sunset1995/DirectVoxGO.git
 cd DirectVoxGO
+
+Install pytorch scatter first... it will install the dependent version of pytorch.
+
 pip install -r requirements.txt
 ```
 [Pytorch](https://pytorch.org/) and [torch_scatter](https://github.com/rusty1s/pytorch_scatter) installation is machine dependent, please install the correct version for your machine.
