@@ -8,4 +8,5 @@ imageio-ffmpeg
 opencv-python
 torch_efficient_distloss
 ninja
+einops
 
