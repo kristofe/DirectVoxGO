@@ -578,8 +578,16 @@ if __name__=='__main__':
 
     # load setup
     parser = config_parser()
+
+    # Hack command line so this can just be run in a debugger in vscode without changing the config
+    sys.argv.extend(['--config','configs/nerf/lego.py', '--render_test', '--no_reload', '--no_reload_optimizer'])
+
+
     args = parser.parse_args()
     cfg = mmcv.Config.fromfile(args.config)
+    
+    # HACK AGAIN TO JUST DO COARSE LEARNING
+    cfg.fine_train.N_iters=0
 
     # init enviroment
     if torch.cuda.is_available():
@@ -635,6 +643,9 @@ if __name__=='__main__':
             ckpt_path = args.ft_path
         else:
             ckpt_path = os.path.join(cfg.basedir, cfg.expname, 'fine_last.tar')
+            if not os.path.exists(ckpt_path):
+                ckpt_path = os.path.join(cfg.basedir, cfg.expname, 'coarse_last.tar')
+
         ckpt_name = ckpt_path.split('/')[-1][:-4]
         if cfg.data.ndc:
             model_class = dmpigo.DirectMPIGO

@@ -79,8 +79,8 @@ fine_train.update(dict(
 ''' Template of model and rendering options
 '''
 coarse_model_and_render = dict(
-    num_voxels=1024000,           # expected number of voxel
-    num_voxels_base=1024000,      # to rescale delta distance
+    num_voxels=1024000,           # expected number of voxel  (roughly 100**3)
+    num_voxels_base=1024000,      # to rescale delta distance  (roughly 100**3)
     density_type='DenseGrid',     # DenseGrid, TensoRFGrid
     k0_type='DenseGrid',          # DenseGrid, TensoRFGrid
     density_config=dict(),
